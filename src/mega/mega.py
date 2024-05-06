@@ -760,7 +760,7 @@ class Mega:
                 )
 
                 try:
-                  dlstats_msg.edit(f"📥 𝐃𝐎𝐖𝐍𝐋𝐎𝐀𝐃𝐈𝐍𝐆 📥\n{progress}\n┣📦 Pʀᴏɢʀᴇꜱꜱ : {ok}\n┣ 📛 Nᴀᴍᴇ : {file_name}\n┣ ✅ Dᴏɴᴇ : {humanize.naturalsize(file_info.st_size)}\n┣ 📁 Tᴏᴛᴀʟ : {humanize.naturalsize(file_size)}\n┗━━━━━━━━━━━━━━━━━━━━", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("⛔ Cancel", callback_data="cancel_mega")]]))
+                  dlstats_msg.edit(f"📥 𝐃𝐎𝐖𝐍𝐋𝐎𝐀𝐃𝐈𝐍𝐆 📥\n{progress}\n┣📦 Pʀᴏɢʀᴇꜱꜱ : {ok}\n┣ 📛 Nᴀᴍᴇ : {file_name}\n┣ ✅ Dᴏɴᴇ : {humanize.naturalsize(file_info.st_size)}\n┣ 📁 Tᴏᴛᴀʟ : {humanize.naturalsize(file_size)}┗━━━━━━━━━━━━━━━━━━━━", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("⛔ Cancel", callback_data="cancel_mega")]]))
                   logger.info('%s of %s downloaded', file_info.st_size,
                             file_size)
                 except MessageNotModified:
