@@ -750,17 +750,17 @@ class Mega:
                 # Edit status message
                 percentage = file_info.st_size * 100 / file_size
                 
-                progress = "`[{0}{1}]` \n".format(
+                progress = "[{0}{1}] \n".format(
                   ''.join(["▣" for i in range(math.floor(percentage / 5))]),
                   ''.join(["▢" for i in range(10 - math.floor(percentage / 5))])
                 )
 
-                ok = "`{0}%`".format(
+                ok = "{0}%".format(
                   round(percentage, 2)
                 )
 
                 try:
-                  dlstats_msg.edit(f"**📥Downloading Mega Link...**\n{progress}\n➩ 📦**Progress**: {ok} \n➩ 📛**Name**: `{file_name}` \n➩ ✅**Done**: `{humanize.naturalsize(file_info.st_size)}` \n➩ 📁**Size**: `{humanize.naturalsize(file_size)}`", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("❌ Cancel", callback_data="cancel_mega")]]))
+                  dlstats_msg.edit(f"**📥Downloading Mega Link...**\n{progress}\n➩ 📦**Progress**: {ok} \n➩ 📛**Name**: `{file_name}` \n➩ ✅**Done**: {humanize.naturalsize(file_info.st_size)} \n➩ 📁**Size**: {humanize.naturalsize(file_size)}", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("❌ Cancel", callback_data="cancel_mega")]]))
                   logger.info('%s of %s downloaded', file_info.st_size,
                             file_size)
                 except MessageNotModified:
